@@ -8,24 +8,24 @@ spec:
   selector:
     matchLabels:
       app: vprodb
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
         app: vprodb
     spec:
       containers:
-      - name: vprodb
-        image: vprofile/vprofiledb
-        ports:
-        - name: vprodb-port
-          containerPort: 3306
-        env: 
-         - name: MYSQL_ROOT_PASSWORD
-           valueFrom:
-             secretKeyRef:
-               name: app-secret
-               key: db-pass
+        - name: vprodb
+          image: vprofile/vprofiledb
+          ports:
+            - name: vprodb-port
+              containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: db-pass
 #        env:
 #         - name: MYSQL_ROOT_PASSWORD
 #           value: "vprodbpass"

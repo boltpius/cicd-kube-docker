@@ -85,7 +85,7 @@ pipeline {
             steps{
                 script {
                     docker.withRegistry('', registryCredential ) {
-                        dockerImage.push("v$BUILD_NUMBER")// these are docker functions use to push docker image to dockerhub and the 'dockerimage' is where we built the image from the last stage so we reference it in this stage to push.
+                        dockerImage.push("v$BUILD_NUMBER")// these are docker functions which are used to push docker image to dockerhub and the 'dockerimage' is where we built the image from the last stage so we reference it in this stage to push.
                          dockerImage.push('latest')
                     }
                 }

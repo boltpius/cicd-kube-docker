@@ -94,7 +94,7 @@ pipeline {
 
         stage('Remove Unused docker image') {
           steps{
-            sh "docker rmi $registry:$BUILD_NUMBER" // this stage basically removes unused docker images so it doesnt use up al the space in the jenkins server.
+            sh "docker rmi $registry:v$BUILD_NUMBER" // this stage basically removes unused docker images so it doesnt use up al the space in the jenkins server.
 
           }
         }
